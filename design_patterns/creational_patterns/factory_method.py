@@ -30,10 +30,9 @@ class PaytmPayment(Payment):
         return f"Payment {amount} Done Using  GooglePay"
 
 #we can keep create factory using class also
-def PaymentFactory(payment_type, amount):
+def PaymentFactory(payment_type):
     """
     factory method to create the appropriate Payment object based on the payment type
-    and calling the pay method to make payment
     """
     factory = {
         "phonepe": PhonePePayment,
@@ -41,12 +40,9 @@ def PaymentFactory(payment_type, amount):
         "paytm": PaytmPayment
     }
     if payment_type in factory:
-        mode = factory[payment_type]()
-        print(mode.pay(amount))
+        return factory[payment_type]()
     else:
         raise ValueError(f'{payment_type} is not available')
 #client
-PaymentFactory("phonepe", 100)
-PaymentFactory("googlepay", 150)
-PaymentFactory("paytm", 200)
-PaymentFactory("apple", 100)
+mode = PaymentFactory("googlepay") #phonepe, googlepay, paytm
+print(mode.pay(1000))
