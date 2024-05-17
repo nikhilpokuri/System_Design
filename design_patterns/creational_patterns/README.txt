@@ -1,4 +1,11 @@
 ABSTRACT FACTORY METHOD
+    USECASE:
+     - To create multiple, related objects that belong together and ensure that they are used together.
+        here, Engine and Wheels
+     - To abstract the creation of complex object families 
+        and provide an interface for creating those objects 
+        without specifying their concrete classes
+
     Abstract Products: 
         Engine and Wheels define interfaces for the products.
     Concrete Products: 
@@ -14,6 +21,9 @@ ABSTRACT FACTORY METHOD
         with the products without knowing their concrete classes.
 ------------------------------------------------------------------------------------------------   
 Factory Method Pattern
+    USECASE:
+     - To create one type of product or object
+       here, Only Payment Product
     Abstract Product:
         Payment defines an interface for making payments with a pay method.
     Concrete Products:
