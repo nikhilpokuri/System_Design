@@ -22,8 +22,8 @@ ABSTRACT FACTORY METHOD
 ------------------------------------------------------------------------------------------------   
 Factory Method Pattern
     USECASE:
-     - To create one type of product or object
-       here, Only Payment Product
+        To create one type of product or object here, Only Payment Product
+
     Abstract Product:
         Payment defines an interface for making payments with a pay method.
     Concrete Products:
@@ -37,3 +37,17 @@ Factory Method Pattern
     
     Client Code:
         The client code uses the PaymentFactory function to create and interact with different Payment objects without needing to know their specific classes.
+
+Prototype Pattern Structure
+    USECASE:
+        - To create duplicate objects while ensuring performance.
+        - When the cost of creating a new object is more expensive than cloning an existing one.
+    
+    Prototype Interface:
+        Person is the prototype interface.
+    Concrete Prototype:
+        Teacher and Student are concrete implementations of person interface.
+    
+    Client:
+        Uses the clone method to duplicate existing objects instead of creating new ones from scratch.
+        The client in this case demonstrates cloning and modifying objects.
