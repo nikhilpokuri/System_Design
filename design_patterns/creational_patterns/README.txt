@@ -87,3 +87,16 @@ Builder Pattern:
     
     client:
         creates the objects step by step construction and incase of customizing or missing configurations
+
+Singleton Pattern:
+    USECASE:
+        - To restrict the creation of instances more than one.
+    DB_Connection:
+        - Class for creation of Database Connection (say).
+        - Since creation of multiple instances may occur more costs, so restricting to one object.
+    get_instance:
+        - It is a staticmethod which belongs to class not instance.
+        - Created to return the instance when requested.
+        - If this method call's for another time, return the previous instance.
+        - This will not throw error, because this is staticmethod, 
+          we don't have to create object again to call this method.
