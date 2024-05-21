@@ -37,17 +37,42 @@ Factory Method Pattern
     
     Client Code:
         The client code uses the PaymentFactory function to create and interact with different Payment objects without needing to know their specific classes.
-
+-------------------------------------------------------------------------------------------------
 Prototype Pattern Structure
     USECASE:
         - To create duplicate objects while ensuring performance.
         - When the cost of creating a new object is more expensive than cloning an existing one.
     
-    Prototype Interface:
+    Abstract Product:
         Person is the prototype interface.
-    Concrete Prototype:
+    Concrete Products:
         Teacher and Student are concrete implementations of person interface.
     
     Client:
         Uses the clone method to duplicate existing objects instead of creating new ones from scratch.
         The client in this case demonstrates cloning and modifying objects.
+-------------------------------------------------------------------------------------------------
+Fluent Builder Pattern
+    USECASE:
+        - To create the complex objects step by step and separate the construction process
+        - To allow customize configurations especially when there are multiple configuration options.
+    
+    Abstract Product:
+        - HouseBuilder is an abstract class with abstract methods build_walls, build_roof, and build_windows.
+        - It initializes a ConstructHouse object and has a method get_house to return the constructed house.
+    Concrete Builders:
+        - WoodenBuilder and BrickBuilder are concrete implementations of HouseBuilder.
+            WoodenBuilder sets the walls, roof, and windows to wood, shingle, and single pane.
+            BrickBuilder sets the walls, roof, and windows to brick, tile, and double-glazed.
+    Product:
+        - ConstructHouse is the product class that has methods to set its properties (walls, roof, windows).
+        - The __str__ method provides a string representation of the house properties.
+    
+    Director (Optional):
+        The Builder class can be considered a director 
+        that manages the construction process using a specific builder without customizing configurations.
+    
+    Client Code:
+        - The client code demonstrates how to use the builders to construct houses.
+        - Use Builder as a director if you dont have Optional configurations
+        - Or build objects step by step without Builder when you have Optional configurations
