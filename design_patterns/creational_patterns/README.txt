@@ -55,8 +55,9 @@ Prototype Pattern Structure
 Fluent Builder Pattern
     USECASE:
         - To create the complex objects step by step and separate the construction process
-        - To allow customize configurations especially when there are multiple configuration options.
-    
+          and optional configurations
+        - Use this pattern when you have multiple products
+
     Abstract Product:
         - HouseBuilder is an abstract class with abstract methods build_walls, build_roof, and build_windows.
         - It initializes a ConstructHouse object and has a method get_house to return the constructed house.
@@ -69,10 +70,20 @@ Fluent Builder Pattern
         - The __str__ method provides a string representation of the house properties.
     
     Director (Optional):
-        The Builder class can be considered a director 
+        The Builder class can be considered a director.
         that manages the construction process using a specific builder without customizing configurations.
     
     Client Code:
         - The client code demonstrates how to use the builders to construct houses.
-        - Use Builder as a director if you dont have Optional configurations
-        - Or build objects step by step without Builder when you have Optional configurations
+        - Use Builder as a director if you dont have Optional configurations.
+        - Or build objects step by step without Builder when you have Optional configurations.
+
+Builder Pattern:
+    USECASE:
+        - To create the complex objects step by step and separate the construction process.
+        - To allow the customizing configurations by providing that particular object.
+    Product:
+        HouseBuilder is the construction process which takes the instance of House and set the values
+    
+    client:
+        creates the objects step by step construction and incase of customizing or missing configurations
