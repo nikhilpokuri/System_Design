@@ -37,3 +37,36 @@ Bridge Pattern:
     Client:
         The client code uses the BasicRemote to control the volume of different devices 
         (Radio, Television, HomeTheater, Speaker).
+
+
+Composite Pattern:
+    USECASE:
+        - To represent part-whole hierarchies of objects.
+        - To treat individual objects and compositions of objects uniformly.
+    
+    ---------------------------EXAMPLE-01-------------------------------------------
+    Abstract Component:
+        [ FileSystemComponent ]
+        - Defines the interface for all components in the composition.
+        - Declares a method display to display the component's details.
+    Concrete Components:
+        File:
+            - Implements the FileSystemComponent interface.
+            - Represents a leaf in the composition, i.e., an individual file.
+        Directory:
+            - Implements the FileSystemComponent interface.
+            - Represents a composite in the composition, i.e., a directory that can contain other files or directories.
+        Contains a method add_component to add files or directories.
+    Client:
+        - Creates a file system structure with directories and files.
+        - Uses the display method to print the structure.
+
+    ---------------------------EXAMPLE-02-------------------------------------------
+    Equipment:
+        Represents an individual piece of equipment with a name and price.
+
+    Composite:
+        - Represents a composite equipment item that can contain multiple pieces of equipment or other composites.
+        - Contains methods to add items and calculate the total price.
+    Client:
+        Creates a composite structure of computer equipment and calculates the total price.
