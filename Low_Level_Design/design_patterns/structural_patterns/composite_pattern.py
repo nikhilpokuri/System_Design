@@ -26,6 +26,7 @@ class Directory(FileSystemComponent):
         for child in self.children:
             child.display(space + 2)
 
+#client
 root = Directory("root")
 
 dir1 = Directory("dir1")
@@ -67,7 +68,8 @@ class Composite:
     
     def price(self):
         return sum([item.price for item in self.items])
-    
+
+#client
 computer = Composite("PC")
 keyboard = Equipment("Keyboard", 2000)
 cpu = Equipment("CPU", 4000)
