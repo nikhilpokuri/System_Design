@@ -17,6 +17,8 @@ Adapter Pattern:
         [ load_data function ]
         Uses the adapter to read data from different file types without worrying about their specific implementations.
 
+-------------------------------------------------------------------------------------------------
+
 Bridge Pattern:
     USECASE:
         - To avoid the creation of multiple classes.
@@ -38,13 +40,14 @@ Bridge Pattern:
         The client code uses the BasicRemote to control the volume of different devices 
         (Radio, Television, HomeTheater, Speaker).
 
+-------------------------------------------------------------------------------------------------
 
 Composite Pattern:
     USECASE:
         - To represent part-whole hierarchies of objects.
         - To treat individual objects and compositions of objects uniformly.
     
-    ---------------------------EXAMPLE-01-------------------------------------------
+    --------------------EXAMPLE-01---------------------
     Abstract Component:
         [ FileSystemComponent ]
         - Defines the interface for all components in the composition.
@@ -61,7 +64,7 @@ Composite Pattern:
         - Creates a file system structure with directories and files.
         - Uses the display method to print the structure.
 
-    ---------------------------EXAMPLE-02-------------------------------------------
+    -----------------------EXAMPLE-02--------------------------
     Equipment:
         Represents an individual piece of equipment with a name and price.
 
@@ -70,6 +73,8 @@ Composite Pattern:
         - Contains methods to add items and calculate the total price.
     Client:
         Creates a composite structure of computer equipment and calculates the total price.
+
+-------------------------------------------------------------------------------------------------
 
 Decorator Pattern:
     USECASE:
