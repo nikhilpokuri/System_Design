@@ -100,3 +100,19 @@ Decorator Pattern:
     Client:
         client code demonstrates how to wrap a BasicCoffee object with various decorators 
         to add different flavors and calculate the total price and description.
+    
+Facade Pattern:
+    USECASE:
+        - To encapsulate the complexities of the subsystems and provide a unified interface for the client.
+    
+    Subsystem Classes:
+        [ VerifiedUsers, SeatAvailability, and Notification ]
+        These classes perform specific functions related to the booking system.
+
+    Facade:
+        [ FacadeBooking ]
+        provides a simplified interface to book a seat by combining all subsystem classes.
+    
+    Client:
+        Client interacts with the booking system through the facade, 
+        Thus, simplifying its code and reducing the need to understand the subsystem's complexity.
