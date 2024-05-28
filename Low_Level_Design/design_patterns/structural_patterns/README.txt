@@ -70,3 +70,28 @@ Composite Pattern:
         - Contains methods to add items and calculate the total price.
     Client:
         Creates a composite structure of computer equipment and calculates the total price.
+
+Decorator Pattern:
+    USECASE:
+        - To dynamically add responsibilities to objects.
+        - To add behavior to objects at runtime without affecting other objects of the same class.
+    
+    Abstract Component:
+        [ Coffee ] 
+        Defines the price and description methods that all concrete components and decorators must implement.
+    Concrete Component:
+        [ BasicCoffee ]
+        Implements the Coffee interface providing basic functionality.
+    
+    Decorator:
+        [ CoffeeDecorator ] 
+        contains a reference to a Coffee object and implements the Coffee interface, 
+        to ensure price and description methods that all concrete decorators must implement.
+    Concrete Decorators:
+        [ MilkDecorator and CreamDecorator ] 
+        - Extend the CoffeeDecorator and add their specific behavior to the price and description methods.
+        - So that we can now customize or add responsibilities without affecting that objects
+    
+    Client:
+        client code demonstrates how to wrap a BasicCoffee object with various decorators 
+        to add different flavors and calculate the total price and description.
