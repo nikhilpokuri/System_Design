@@ -100,7 +100,9 @@ Decorator Pattern:
     Client:
         client code demonstrates how to wrap a BasicCoffee object with various decorators 
         to add different flavors and calculate the total price and description.
-    
+
+-------------------------------------------------------------------------------------------------
+ 
 Facade Pattern:
     USECASE:
         - To encapsulate the complexities of the subsystems and provide a unified interface for the client.
@@ -116,3 +118,58 @@ Facade Pattern:
     Client:
         Client interacts with the booking system through the facade, 
         Thus, simplifying its code and reducing the need to understand the subsystem's complexity.
+
+-------------------------------------------------------------------------------------------------
+
+Flyweight Pattern:
+    USECASE:
+        - To efficiently manage a large number of similar objects by sharing common parts.
+        - To minimize memory usage by sharing as much data as possible with other similar objects.
+    
+    Intrinsic State:
+        [Family, Brand]
+        Shared among multiple objects, these attributes are stored in the CarFlyWeight class.
+    Extrinsic State:
+        [Number, Variant, Color, Max Speed]
+        Unique to each object instance, these attributes are passed to the display method of CarFlyWeight.
+    
+    Flyweight Class:
+        [CarFlyWeight]
+        Contains the intrinsic state and a method to display the full state (including extrinsic state).
+    Flyweight Factory:
+        [FlyWeightFactory]
+        Manages the creation and reuse of CarFlyWeight objects, ensuring that shared objects are reused to save memory.
+    
+    Client Class:
+        [Car]
+        Composes the intrinsic and extrinsic states to form the complete object and 
+        instantiate the display functionality to the CarFlyWeight object.
+    Client:
+        Uses the FlyWeightFactory to get or create CarFlyWeight objects and instantiate Car objects.
+
+-------------------------------------------------------------------------------------------------
+
+Proxy Pattern:
+    USECASE:
+        - To control access to another object, adding a layer of control.
+        - To delay the creation and initialization of expensive objects until they are needed.
+    
+    Abstract Component:
+        [Image]
+        Defines the display method that all concrete Real and Proxies must implement.
+    
+    Real Subject:
+        [HighResolutionImage]
+        - Implements the Image interface. 
+        - provides the actual functionality to load and display high-resolution images.
+    Proxy Subject:
+        [ProxyImage]
+        - Controls access to the HighResolutionImage object. 
+        - It displays a placeholder and only loads the high-resolution image.
+    
+    Client:
+        - The client interacts with the proxy, which in turn manages access to the real subject. 
+        - This way, the client code is simplified and doesn't have to manage the loading or initialization of the real subject
+        - When client uses ProxyImage's display method:
+            First Time: Displays Proxy Image
+            Second Time: Displays HighResolution Image
