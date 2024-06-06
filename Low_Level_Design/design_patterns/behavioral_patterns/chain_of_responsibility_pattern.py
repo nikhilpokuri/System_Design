@@ -45,11 +45,15 @@ class FounderHandler(ExpenseHandler):
             return f"Founder Rejected amount of {amount}"
 
 #client
-founder = FounderHandler()
-ceo = CeoHandler(founder)
-manager = ManagerHandler(ceo)
-supervisor = SupervisorHandler(manager)
+def expense_handler(amount):
+    founder = FounderHandler()
+    ceo = CeoHandler(founder)
+    manager = ManagerHandler(ceo)
+    supervisor = SupervisorHandler(manager)
+
+    status = supervisor.handle_expense(amount)
+    return status
 
 expenses = [1000, 1001, 3545, 10000, 10005, 100001]
 for expense in expenses:
-    print(supervisor.handle_expense(expense))
+    print(expense_handler(expense))
