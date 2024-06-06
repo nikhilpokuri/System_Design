@@ -76,6 +76,7 @@ Interpreter Pattern:
     Client:
         Demonstrates how to create and evaluate complex expressions using the classes defined above.
 
+-------------------------------------------------------------------------------------------------
 
 Iterator Pattern:
     USECASE:
