@@ -105,3 +105,26 @@ Iterator Pattern:
     Client:
         Demonstrates how to use the NumberCollection and ListIterator 
         to traverse or reverse traverse and access the elements of the collection.
+
+-------------------------------------------------------------------------------------------------
+
+Memento Pattern:
+    USECASE:
+        - To capture and store the current state of an object so that it can be restored later without violating encapsulation.
+        - To provide undo functionality or to save and restore to desired state of an object.
+
+    Memento
+    [ EditorMemento ]
+        - Stores the state/saved-data of the Originator.
+        - Provides a method to retrieve the stored state.
+
+    Originator
+    [ TextEditor ]
+        - Maintains the state of the text.
+        - Provides methods to write text, save its current state, and restore to memento desired state.
+
+    Caretaker
+    [ EditorHistory ]
+        - Manages the mementos.
+        - Responsible for saving originator's state
+            restoring to previous Originator's state using the Memento.
