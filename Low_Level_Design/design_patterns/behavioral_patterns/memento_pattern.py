@@ -44,10 +44,21 @@ editor.write("nikhil") # now editor has "nikhil"
 editor.write("_pokuri") # now editor has "nikhil_pokuri"
 memento1 = editor.save() 
 history.add_memento(memento1) # SAVING "nikhil_pokuri" TO HISTORY
+print("First Stage:",editor.get_current_state())
 
 editor.write("_chowdary") # now editor has "nikhil_pokuri_chowdary"
 editor.restore(history.undo()) # now editor has restored to previous state i.e., "nikhil_pokuri" 
 editor.write("_cr") # now editor has "nikhil_pokuri_cr" and saving to history
-memento1 = editor.save() 
-history.add_memento(memento1) # SAVING "nikhil_pokuri_cr" TO HISTORY
-print(editor.get_current_state())
+memento2 = editor.save() 
+history.add_memento(memento2) # SAVING "nikhil_pokuri_cr" TO HISTORY
+print("Second Stage:",editor.get_current_state())
+
+editor.write("_chowdary") # now editor has "nikhil_pokuri_cr_chowdary"
+editor.restore(history.undo()) # now editor has restored to previous state i.e., "nikhil_pokuri_cr" 
+editor.write("_cse") # now editor has "nikhil_pokuri_cr_cse" and saving to history
+memento3 = editor.save() 
+history.add_memento(memento3) # SAVING "nikhil_pokuri_cr" TO HISTORY
+print("Third Stage:",editor.get_current_state())
+
+editor.restore(memento1) # now editor has restored to first state i.e., nikhil_pokuri
+print("Final Stage(RESTORED TO FIRST):",editor.get_current_state())
