@@ -19,18 +19,21 @@ class Aggregate(ABC):
         pass
 
 class ListIterator(Iterator):
-    def __init__(self, collection) -> None:
+    def __init__(self, collection, reverse=False) -> None:
         self.__collection = collection
-        self.index = 0
+        self.reverse = reverse
+        self.index = -1 if reverse else 0
     
     def has_next(self):
-        return self.index < len(self.__collection)
+        return -len(self.__collection) <= self.index < len(self.__collection)
     
     def next(self):
-        if not self.has_next():
-            raise StopIteration("Cannot Iter More Than Limit")
-        self.index += 1
-        return self.__collection[self.index - 1]
+        if self.has_next():
+            value = self.__collection[self.index]
+            self.index += -1 if self.reverse else 1
+            return value
+        raise StopIteration("Cannot Iter Beyond Limit")
+        
 
 class NumberCollection(Aggregate):
     def __init__(self):
@@ -39,6 +42,9 @@ class NumberCollection(Aggregate):
     def add_element(self, element):
         self.__collection.append(element)
     
+    def reverse_collection(self):
+        return ListIterator(self.__collection, True)
+
     def create_iterator(self):
         return ListIterator(self.__collection)
 
@@ -50,7 +56,9 @@ collection.add_element(20)
 collection.add_element(30)
 collection.add_element(40)
 
-iterator = collection.create_iterator()
+iterator = collection.create_iterator() #normal traversal
+iterator = collection.reverse_collection() #reverse traversal
+# print(iterator.next())
 while iterator.has_next():
     print(iterator.next())
 
