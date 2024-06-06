@@ -128,3 +128,23 @@ Memento Pattern:
         - Manages the mementos.
         - Responsible for saving originator's state
             restoring to previous Originator's state using the Memento.
+
+-------------------------------------------------------------------------------------------------
+
+Strategy Pattern:
+    USECASE:
+        - To define a group of algorithms, encapsulate each one, and make them interchangeable.
+        - To allow the algorithm to vary independently from clients that use it.
+
+    Context:
+        [ Transport ]
+        - This class is configured with a strategy object.
+        - It maintains a reference to a strategy object and execute.
+
+    Strategies:
+        [ airTransport, roadTransport, waterTransport ]
+        - Strategies implementing the algorithm using different means of transport.
+
+    Client:
+        - The client creates a context and configures it with one of the strategies.
+        - It interacts with the context to execute the strategy.
