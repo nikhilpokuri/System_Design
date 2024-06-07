@@ -148,3 +148,30 @@ Strategy Pattern:
     Client:
         - The client creates a context and configures it with one of the strategies.
         - It interacts with the context to execute the strategy.
+
+-------------------------------------------------------------------------------------------------
+   
+Template Method Pattern:
+    USECASE:
+        - To define the skeleton of an algorithm in a base class 
+          and allow subclasses to redefine specific steps of the algorithm without changing its structure.
+        - Don't have to call the each and every step, just call the template method
+
+    Template Class:
+        [ FoodSystem ]
+        - Template method template which provides the skeleton of the food ordering process.
+        - Includes abstract methods [ accept_order, specifications, cooking_status ] that subclasses must implement.
+        - Contains a concrete methods [ availability, serve ].
+    
+    Concrete Classes:
+        [ Breakfast, Meals ]
+        Breakfast:
+            - Implements accept_order, specifications, and cooking_status for breakfast orders.
+            - Specifies how to handle breakfast-specific order steps.
+        Meals:
+            - Implements accept_order, specifications, and cooking_status for meal orders.
+            - Specifies how to handle meal-specific order steps.
+    
+    Client:
+        - Client creates instances of Breakfast and Meals.
+        - Calls the template method on these instances to execute the algorithm with different implementations of the steps.
