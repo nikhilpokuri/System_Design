@@ -175,3 +175,30 @@ Template Method Pattern:
     Client:
         - Client creates instances of Breakfast and Meals.
         - Calls the template method on these instances to execute the algorithm with different implementations of the steps.
+
+-------------------------------------------------------------------------------------------------
+
+Observer Pattern:
+    USECASE:
+    - To establish a one-to-many dependency between objects so that when one object (the subject) changes state, all its dependents (observers) are notified and updated automatically.
+    - Useful when changes to one object require notifying and updating a varying number of other objects.
+    
+    Abstract Observer:
+    [ Observer ]
+    - Defines an abstract method set_temperature that all concrete observers must implement.
+
+    Subject:
+        [ WeatherStation ]
+        - Maintains a list of observers and provides methods to subscribe and unsubscribe observers.
+        - Method (notify_all) Notifies all subscribed observers of temperature changes by calling their set_temperature method.
+
+    Concrete Observers:
+        [ AirConditionerObserver, GeyserObserver ]
+        - Implement the Observer interface and define the set_temperature method to update their state based on the subject's state.
+        - AirConditionerObserver: Responds to temperature changes by turning the air conditioner on or off.
+        - GeyserObserver: Responds to temperature changes by turning the geyser on or off.
+
+    Client:
+        - Creates instances of the subject (WeatherStation) and concrete observers (AirConditionerObserver, GeyserObserver).
+        - Subscribes and Unsubscribes observers to the subject.
+        - Notifies all observers of state changes by calling the notify_all method on the subject.
