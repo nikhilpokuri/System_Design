@@ -238,3 +238,37 @@ Visitor Pattern:
     Client:
         - Creates instances of concrete elements (Racoon, Wolf) and adds them to the Zoo.
         - Creates concrete visitors (FoodVisitor, CleanVisitor) and performs operations on the Zoo's elements by calling perform_visit.
+
+-------------------------------------------------------------------------------------------------
+
+State Pattern:
+    USECASE:
+        - Useful when an object's behavior is dependent on its state 
+          and it must change behavior at runtime depending on that state.
+        - To allow an object to alter its behavior when its internal state changes. 
+        
+    Abstract State:
+    [ LightState ]
+        - Defines an abstract method handle that all concrete state classes must implement.
+    
+    Concrete States:
+    [ RedLight, YellowLight, GreenLight ]
+        - Implement the handle method to define specific behavior for each state.
+        - RedLight: Prints "Red..STOP" and transitions to YellowLight.
+        - YellowLight: Prints "Yellow..WAIT" and transitions to GreenLight.
+        - GreenLight: Prints "Green..GO" and transitions to RedLight.
+    
+    Context:
+    [ Traffic ]
+        - Maintains a reference to the current state object (light).
+        - set_light: Changes the current state.
+        - red_light: Handles the transition when the current state is RedLight. 
+                     Raises an error message if the state is incorrect.
+        - yellow_light: Handles the transition when the current state is YellowLight. 
+                        Raises an error message if the state is incorrect.
+        - green_light: Handles the transition when the current state is GreenLight. 
+                        Raises an error message if the state is incorrect.
+    Client:
+        - Creates Traffic instance calls methods (red_light, yellow_light, green_light) to change states.
+        - Call correct sequence of state transitions (red -> yellow -> green). 
+          Throws errors if the sequence is incorrect.
