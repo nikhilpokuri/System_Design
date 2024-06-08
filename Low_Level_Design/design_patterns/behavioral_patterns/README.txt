@@ -202,3 +202,39 @@ Observer Pattern:
         - Creates instances of the subject (WeatherStation) and concrete observers (AirConditionerObserver, GeyserObserver).
         - Subscribes and Unsubscribes observers to the subject.
         - Notifies all observers of state changes by calling the notify_all method on the subject.
+
+-------------------------------------------------------------------------------------------------
+
+Visitor Pattern:
+    USECASE:
+        - To define new operations without changing the classes of elements/Visitables on which they operate.
+        - Useful when you have a complex object structure and need to perform different kinds of operations on these objects.
+    
+    Abstract Visitor:
+    [ AnimalVisitor ]
+        - Declares visit methods for each type of concrete element (visit_racoon and visit_wolf) that all concrete visitors must implement.
+    
+    Concrete Visitors:
+    [ FoodVisitor, CleanVisitor ]
+        - Implement the visit methods (visit_racoon and visit_wolf) to define specific operations for each element.
+        - FoodVisitor: Implements feeding operations for racoon and wolf.
+        - CleanVisitor: Implements cleaning operations for racoon and wolf.
+    
+    Abstract Element/Visitable:
+    [ Animal ]
+        - Declares an accept method that takes a visitor object, which concrete elements must implement.
+    
+    Concrete Elements/Visitable:
+    [ Racoon, Wolf ]
+        - Implement the accept method to call the appropriate visit method on the visitor.
+        - Racoon: Implements accept method to call visit_racoon on the visitor.
+        - Wolf: Implements accept method to call visit_wolf on the visitor.
+    
+    Object Structure:
+    [ Zoo ]
+        - Manages a collection of elements/visitables and allows performing operations on them using visitors.
+        - Contains methods to (add_animal, perform_visit) by iterating through the animals and accepting visitors.
+    
+    Client:
+        - Creates instances of concrete elements (Racoon, Wolf) and adds them to the Zoo.
+        - Creates concrete visitors (FoodVisitor, CleanVisitor) and performs operations on the Zoo's elements by calling perform_visit.
