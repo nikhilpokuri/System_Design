@@ -238,3 +238,5 @@ Visitor Pattern:
     Client:
         - Creates instances of concrete elements (Racoon, Wolf) and adds them to the Zoo.
         - Creates concrete visitors (FoodVisitor, CleanVisitor) and performs operations on the Zoo's elements by calling perform_visit.
+
+copyright @2024 Nikhil Pokuri All rights reserved
