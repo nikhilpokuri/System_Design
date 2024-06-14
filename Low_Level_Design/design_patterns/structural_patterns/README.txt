@@ -176,3 +176,5 @@ Proxy Pattern:
         - When client uses ProxyImage's display method:
             First Time: Displays Proxy Image
             Second Time: Displays HighResolution Image
+
+copyright @2024 Nikhil Pokuri All rights reserved
