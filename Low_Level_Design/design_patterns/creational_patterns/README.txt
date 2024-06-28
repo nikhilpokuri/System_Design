@@ -103,3 +103,5 @@ Singleton Pattern:
         - If this method call's for another time, return the previous instance.
         - This will not throw error, because this is staticmethod, 
           we don't have to create object again to call this method.
+
+copyright @2024 Nikhil Pokuri All rights reserved

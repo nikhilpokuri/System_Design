@@ -239,6 +239,7 @@ Visitor Pattern:
         - Creates instances of concrete elements (Racoon, Wolf) and adds them to the Zoo.
         - Creates concrete visitors (FoodVisitor, CleanVisitor) and performs operations on the Zoo's elements by calling perform_visit.
 
+<<<<<<< HEAD
 -------------------------------------------------------------------------------------------------
 
 State Pattern:
@@ -272,3 +273,6 @@ State Pattern:
         - Creates Traffic instance calls methods (red_light, yellow_light, green_light) to change states.
         - Call correct sequence of state transitions (red -> yellow -> green). 
           Throws errors if the sequence is incorrect.
+=======
+copyright @2024 Nikhil Pokuri All rights reserved
+>>>>>>> 89912be09fca4bb215ffb523bba5d37dda44e8ee
