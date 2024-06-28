@@ -13,6 +13,8 @@ class Payment:
             return f"{amount} paid with upi"
         if payment_type == "debit":
             return f"{amount} paid with debit"
+payment = Payment()
+print(payment.pay("credit", 50000))
 # ---------------------------------------------------------
 
 # we have created PaymentType interface to achieve open-closed princile
@@ -35,3 +37,9 @@ class Upi(PaymentType):
 class Debit(PaymentType):
     def pay(self, amount):
         return f"{amount} paid with debit card"
+
+credit = Credit()
+print(credit.pay(5000))
+
+upi = Upi()
+print(upi.pay(5000))
