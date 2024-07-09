@@ -1,3 +1,11 @@
+""" 
+Dependency Inversion: High-level modules should not depend on low-level modules/classes
+                      but both should depend on abstractions. 
+"""
+# Here, Gmail & Facebook depending on Authenticator class which violates Dependency Inversion
+# Suppose, if we have to work with various authenticators like Sms/Mail 
+  # then we have to change code that violates the open-closed principle too. 
+
 from abc import ABC, abstractmethod
 
 class LoginProcessor(ABC):
