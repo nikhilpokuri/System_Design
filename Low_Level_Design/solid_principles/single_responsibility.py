@@ -1,3 +1,9 @@
+""" 
+Single responsibility: one class should not handle more than one responsibility.
+"""
+# Below, Library1 is handling it's responsibilities and payment responsibity too.
+# we have to separate the payment method to achieve single responsibility.
+
 class Library1:
     def __init__(self) -> None:
         self.stock = {"tvd": 2, "originals": 2}
@@ -22,6 +28,7 @@ class Library1:
             return f"Student {student_name} paid due amount {due_amount}/- with googlepay"
     
 # -----------------------------------------------------------------------------------------------------
+
 class Library2:
     def __init__(self) -> None:
         self.stock = {"tvd": 2, "originals": 2}
