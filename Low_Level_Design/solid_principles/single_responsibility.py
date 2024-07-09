@@ -15,8 +15,11 @@ class Library1:
         return f" *** Invalid Book *** "
     
     # the payment system is not related to this class, so single responsibility has violated
-    def payment(self, student_name, due_amount):
-        return f"Student {student_name} paid due amount {due_amount}/- "
+    def payment(self, student_name, due_amount, payment_type):
+        if payment_type == "phonepe":
+            return f"Student {student_name} paid due amount {due_amount}/- with phonepe"
+        if payment_type == "googlepay":
+            return f"Student {student_name} paid due amount {due_amount}/- with googlepay"
     
 # -----------------------------------------------------------------------------------------------------
 class Library2:
@@ -41,13 +44,13 @@ class Payment:
     def payment(self, student_name, due_amount, payment_type):
         if payment_type == "phonepe":
             return f"Student {student_name} paid due amount {due_amount}/- with phonepe"
-        if payment_type == "googleepay":
+        if payment_type == "googlepay":
             return f"Student {student_name} paid due amount {due_amount}/- with googlepay"
 
 library1 = Library1()
 print(library1.borrowBook("tvd"))
 print(library1.returnBook("tvd"))
-print(library1.payment("nick", 1000))
+print(library1.payment("nick", 1000, "phonepe"))
 
 print()
 
@@ -55,4 +58,4 @@ library2 = Library2()
 payment = Payment()
 print(library1.borrowBook("tvd"))
 print(library1.returnBook("tvd"))
-print(payment.payment("nick", 1000))
+print(payment.payment("nick", 1000, "googlepay"))
