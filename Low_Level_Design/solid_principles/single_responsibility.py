@@ -36,9 +36,13 @@ class Library2:
         return f" *** Invalid Book *** "
     
 # payment responsibility has separated from the Library2 class to achieve Single Responsibility Model
+""" But open-closed principle has violated in below. we'll achieve that in open-closed.py"""
 class Payment:
-    def payment(self, student_name, due_amount):
-        return f"Student {student_name} paid due amount {due_amount}/- "
+    def payment(self, student_name, due_amount, payment_type):
+        if payment_type == "phonepe":
+            return f"Student {student_name} paid due amount {due_amount}/- with phonepe"
+        if payment_type == "googleepay":
+            return f"Student {student_name} paid due amount {due_amount}/- with googlepay"
 
 library1 = Library1()
 print(library1.borrowBook("tvd"))
@@ -47,7 +51,7 @@ print(library1.payment("nick", 1000))
 
 print()
 
-library2 = Library1()
+library2 = Library2()
 payment = Payment()
 print(library1.borrowBook("tvd"))
 print(library1.returnBook("tvd"))
